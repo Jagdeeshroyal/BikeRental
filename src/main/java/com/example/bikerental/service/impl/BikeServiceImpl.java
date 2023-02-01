@@ -26,9 +26,8 @@ public class BikeServiceImpl implements BikeService {
 	public Bike updateBookingStatus(Bike bike) {
 		Bike foundBike = null;
 		Optional<Bike> optBike = bikeRepo.findByNumber(bike.getNumber());
-		if(optBike.isPresent())
-		{
-			foundBike = optBike.get();
+		if(optBike.isPresent()){
+		   foundBike = optBike.get();
 		}
 		foundBike.setBooked(!foundBike.isBooked());
 		foundBike = bikeRepo.save(foundBike);
